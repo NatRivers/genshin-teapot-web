@@ -2,7 +2,6 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "simple-imdb-web": "apps/simple-imdb-web",
-    "simple-imdb-web-e2e": "apps/simple-imdb-web-e2e"
+    "simple-imdb-web": "apps/simple-imdb-web"
   }
 }
