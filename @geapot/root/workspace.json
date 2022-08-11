@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "@geapot-web": "apps/@geapot-web",
+    "@geapot-web-e2e": "apps/@geapot-web-e2e"
+  }
+}

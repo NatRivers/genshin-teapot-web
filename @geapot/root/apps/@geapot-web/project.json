@@ -1,0 +1,83 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/@geapot-web/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/@geapot-web",
+        "index": "apps/@geapot-web/src/index.html",
+        "baseHref": "/",
+        "main": "apps/@geapot-web/src/main.tsx",
+        "polyfills": "apps/@geapot-web/src/polyfills.ts",
+        "tsConfig": "apps/@geapot-web/tsconfig.app.json",
+        "assets": [
+          "apps/@geapot-web/src/favicon.ico",
+          "apps/@geapot-web/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/@geapot-web/src/environments/environment.ts",
+              "with": "apps/@geapot-web/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "@geapot-web:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "@geapot-web:build:development"
+        },
+        "production": {
+          "buildTarget": "@geapot-web:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/@geapot-web/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/@geapot-web"],
+      "options": {
+        "jestConfig": "apps/@geapot-web/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
