@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/@geapot-web/src",
+  "sourceRoot": "apps/web/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,16 +9,13 @@
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
-        "outputPath": "dist/apps/@geapot-web",
-        "index": "apps/@geapot-web/src/index.html",
+        "outputPath": "dist/apps/web",
+        "index": "apps/web/src/index.html",
         "baseHref": "/",
-        "main": "apps/@geapot-web/src/main.tsx",
-        "polyfills": "apps/@geapot-web/src/polyfills.ts",
-        "tsConfig": "apps/@geapot-web/tsconfig.app.json",
-        "assets": [
-          "apps/@geapot-web/src/favicon.ico",
-          "apps/@geapot-web/src/assets"
-        ],
+        "main": "apps/web/src/main.tsx",
+        "polyfills": "apps/web/src/polyfills.ts",
+        "tsConfig": "apps/web/tsconfig.app.json",
+        "assets": ["apps/web/src/favicon.ico", "apps/web/src/assets"],
         "styles": [],
         "scripts": [],
         "webpackConfig": "@nrwl/react/plugins/webpack"
@@ -33,8 +30,8 @@
         "production": {
           "fileReplacements": [
             {
-              "replace": "apps/@geapot-web/src/environments/environment.ts",
-              "with": "apps/@geapot-web/src/environments/environment.prod.ts"
+              "replace": "apps/web/src/environments/environment.ts",
+              "with": "apps/web/src/environments/environment.prod.ts"
             }
           ],
           "optimization": true,
@@ -50,15 +47,15 @@
       "executor": "@nrwl/web:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "@geapot-web:build",
+        "buildTarget": "web:build",
         "hmr": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "@geapot-web:build:development"
+          "buildTarget": "web:build:development"
         },
         "production": {
-          "buildTarget": "@geapot-web:build:production",
+          "buildTarget": "web:build:production",
           "hmr": false
         }
       }
@@ -67,14 +64,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/@geapot-web/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/web/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/@geapot-web"],
+      "outputs": ["coverage/apps/web"],
       "options": {
-        "jestConfig": "apps/@geapot-web/jest.config.ts",
+        "jestConfig": "apps/web/jest.config.ts",
         "passWithNoTests": true
       }
     }

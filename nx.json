@@ -40,5 +40,5 @@
       }
     }
   },
-  "defaultProject": "@geapot-web"
+  "defaultProject": "web"
 }
