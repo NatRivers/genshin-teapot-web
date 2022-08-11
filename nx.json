@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "simple-imdb-web",
+  "npmScope": "@geapot/root",
   "affected": {
     "defaultBase": "main"
   },
@@ -40,5 +40,5 @@
       }
     }
   },
-  "defaultProject": "simple-imdb-web"
+  "defaultProject": "web"
 }

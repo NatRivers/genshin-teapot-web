@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/simple-imdb-web/src",
+  "sourceRoot": "apps/web/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,16 +9,13 @@
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
-        "outputPath": "dist/apps/simple-imdb-web",
-        "index": "apps/simple-imdb-web/src/index.html",
+        "outputPath": "dist/apps/web",
+        "index": "apps/web/src/index.html",
         "baseHref": "/",
-        "main": "apps/simple-imdb-web/src/main.tsx",
-        "polyfills": "apps/simple-imdb-web/src/polyfills.ts",
-        "tsConfig": "apps/simple-imdb-web/tsconfig.app.json",
-        "assets": [
-          "apps/simple-imdb-web/src/favicon.ico",
-          "apps/simple-imdb-web/src/assets"
-        ],
+        "main": "apps/web/src/main.tsx",
+        "polyfills": "apps/web/src/polyfills.ts",
+        "tsConfig": "apps/web/tsconfig.app.json",
+        "assets": ["apps/web/src/favicon.ico", "apps/web/src/assets"],
         "styles": [],
         "scripts": [],
         "webpackConfig": "@nrwl/react/plugins/webpack"
@@ -33,8 +30,8 @@
         "production": {
           "fileReplacements": [
             {
-              "replace": "apps/simple-imdb-web/src/environments/environment.ts",
-              "with": "apps/simple-imdb-web/src/environments/environment.prod.ts"
+              "replace": "apps/web/src/environments/environment.ts",
+              "with": "apps/web/src/environments/environment.prod.ts"
             }
           ],
           "optimization": true,
@@ -50,15 +47,15 @@
       "executor": "@nrwl/web:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "simple-imdb-web:build",
+        "buildTarget": "web:build",
         "hmr": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "simple-imdb-web:build:development"
+          "buildTarget": "web:build:development"
         },
         "production": {
-          "buildTarget": "simple-imdb-web:build:production",
+          "buildTarget": "web:build:production",
           "hmr": false
         }
       }
@@ -67,14 +64,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/simple-imdb-web/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/web/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/simple-imdb-web"],
+      "outputs": ["coverage/apps/web"],
       "options": {
-        "jestConfig": "apps/simple-imdb-web/jest.config.ts",
+        "jestConfig": "apps/web/jest.config.ts",
         "passWithNoTests": true
       }
     }

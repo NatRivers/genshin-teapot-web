@@ -1,5 +1,5 @@
 {
-  "name": "simple-imdb-web",
+  "name": "@geapot/root",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
