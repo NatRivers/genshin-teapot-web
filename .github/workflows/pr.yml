@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: lts/gallium
           cache: 'npm'
-          cache-dependency-path: ../package-lock.json
+          cache-dependency-path: package-lock.json
 
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v2
