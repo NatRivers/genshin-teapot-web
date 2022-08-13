@@ -10,7 +10,10 @@ import { ThemeProvider as MuiThemeProvider } from '@mui/material';
  */
 const theme = createTheme({
   palette: {
-    /** palette theme config here */
+    primary: {
+      // FIXME: gross color
+      main: '#f039b1',
+    },
   },
   spacing: 8,
   shape: { borderRadius: 4 },
@@ -21,6 +24,11 @@ const theme = createTheme({
     fontFamily: '"Roboto", sans-serif',
     allVariants: {
       fontFamily: '"Roboto", sans-serif',
+    },
+    fontWeightBold: 700,
+    h2: {
+      fontSize: '1.5rem',
+      fontWeight: 700,
     },
   },
 });
