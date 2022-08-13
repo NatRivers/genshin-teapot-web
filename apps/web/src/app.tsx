@@ -1,4 +1,6 @@
 import styled from '@emotion/styled';
+
+import { ThemeProvider } from './providers';
 import NxWelcome from './nx-welcome';
 
 const StyledApp = styled.div`
@@ -7,9 +9,11 @@ const StyledApp = styled.div`
 
 export function App() {
   return (
-    <StyledApp>
-      <NxWelcome title="geapot-web" />
-    </StyledApp>
+    <ThemeProvider>
+      <StyledApp>
+        <NxWelcome title="geapot-web" />
+      </StyledApp>
+    </ThemeProvider>
   );
 }
 
