@@ -60,6 +60,6 @@ export const Home: FC = () => {
       </Container>
     </>
   );
-}
+};
 
 export default Home;
