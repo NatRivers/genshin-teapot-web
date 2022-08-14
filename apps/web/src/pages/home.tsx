@@ -23,7 +23,7 @@ export const Home: FC = () => {
     <>
       <Box
         component="img"
-        src="../assets/teapotlogo.png"
+        src="../assets/teapotlogo.jpg"
         sx={(theme) => ({
           position: 'absolute',
           borderRadius: '50%',
@@ -54,8 +54,8 @@ export const Home: FC = () => {
           justifyContent="space-evenly"
           sx={{ height: '97vh' }}
         >
-          <StyledImageBox src="../assets/exterior_home.png" alt="exterior" />
-          <StyledImageBox src="../assets/interior_home.png" alt="interior" />
+          <StyledImageBox src="../assets/exterior_home.jpg" alt="exterior" />
+          <StyledImageBox src="../assets/interior_home.jpg" alt="interior" />
         </Stack>
       </Container>
     </>
