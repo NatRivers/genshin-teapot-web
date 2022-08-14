@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { styled } from '@mui/system';
 import { Stack, Box, Container } from '@mui/material';
 
 import { ImageBox } from '../components/Home';
