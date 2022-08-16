@@ -14,15 +14,17 @@ describe('App', () => {
     expect(getByTestId('home-page')).toBeInTheDocument();
   });
 
-  it('unmatched route: defaults to rendering the home page', () => {
-    const { getByTestId } = renderWithRouter(
+  it('unmatched route: defaults to rendering the home page', async () => {
+    const { getByTestId, findByTestId } = renderWithRouter(
       <>
         <Link to="/some/unmatched/route" data-testid="link" />
         <App />
       </>
     );
 
-    expect(getByTestId('link')).toBeInTheDocument();
+    fireEvent.click(getByTestId('link'));
+
+    expect(await findByTestId('home-page')).toBeInTheDocument();
   });
 
   it.each([
