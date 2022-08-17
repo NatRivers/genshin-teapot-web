@@ -5,7 +5,7 @@ import { ImageBox } from '../components/Home';
 
 export const Home: FC = () => {
   return (
-    <Container disableGutters data-testid="home-page">
+    <Container disableGutters maxWidth={false} data-testid="home-page">
       <Box
         component="img"
         src="../assets/teapotlogo.jpg"
