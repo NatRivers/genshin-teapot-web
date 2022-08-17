@@ -11,8 +11,8 @@ import { ThemeProvider as MuiThemeProvider } from '@mui/material';
 const theme = createTheme({
   palette: {
     primary: {
-      // FIXME: gross color
-      main: '#f039b1',
+      main: '#393737',
+      dark: '#000000',
     },
   },
   spacing: 8,
