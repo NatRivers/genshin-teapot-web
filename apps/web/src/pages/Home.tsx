@@ -5,7 +5,7 @@ import { ImageBox } from '../components/Home';
 
 export const Home: FC = () => {
   return (
-    <>
+    <Container disableGutters data-testid="home-page">
       <Box
         component="img"
         src="../assets/teapotlogo.jpg"
@@ -43,7 +43,7 @@ export const Home: FC = () => {
           <ImageBox src="../assets/interior_home.jpg" alt="interior" />
         </Stack>
       </Container>
-    </>
+    </Container>
   );
 };
 
