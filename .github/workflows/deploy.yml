@@ -25,6 +25,8 @@ jobs:
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v2
 
+      # Need to install dependencies to get nx modules
+      # i.e. can't just call `npx -y nx ...` directly
       - name: Install dependencies
         run: npm ci
 
