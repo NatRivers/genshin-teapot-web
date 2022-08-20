@@ -8,7 +8,7 @@ import Home from './pages/Home';
 const ExamplePage = () => (
   <Container data-testid="example-page">
     <Typography variant="h2" align="center" p={2}>
-      Example Page Header
+      Example Page
     </Typography>
   </Container>
 );
