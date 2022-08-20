@@ -75,12 +75,6 @@
         "jestConfig": "apps/web/jest.config.ts",
         "passWithNoTests": true
       }
-    },
-    "deploy": {
-      "executor": "@nrwl/workspace:run-commands",
-      "options": {
-        "command": "gh workflow run deploy-web.yml --ref=initial-web-deployment"
-      }
     }
   },
   "tags": []

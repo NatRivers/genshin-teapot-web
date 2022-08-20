@@ -1,16 +1,15 @@
-name: Trigger affected deployments
+name: Trigger Deployments
 on:
   push:
     #branches:
     #- main
 
-env:
-  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 jobs:
-  main:
+  trigger-deployment:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    outputs:
+      affected-apps: ${{ steps.affected-apps.outputs.affected-apps }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -33,5 +32,32 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build & deploy affected apps
-        run: npx nx affected --target=deploy --parallel=3
+      # ideally, we could just define a "deploy" target in the respective projects
+      # and rely on `nx affected --target=deploy` to _magically_ deploy the correct app(s)
+      # in the "deploy" target config, we would trigger a deployment via the `gh` cli...
+      #
+      # unfortunately, even though we can use the `gh` cli to trigger a new deployment workflow
+      # we need a gh token that has the 'workflow' scope permissions
+      # by default, the 'workflow' scope is omitted from `secrets.GITHUB_TOKEN`
+      # as a guard to prevent recursive workflows from being triggered
+      # https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
+      #
+      # using a personal access token seems less than ideal, so...
+      - id: affected-apps
+        name: Determine affected apps
+        run: |
+          AFFECTED_APPS=$(npx nx print-affected --select=projects) && \
+          echo $AFFECTED_APPS && \
+          echo "::set-output name=affected-apps::$AFFECTED_APPS"
+
+  web:
+    needs: trigger-deployment
+    if: ${{ contains(needs.trigger-deployment.outputs.affected-apps, 'web') }}
+    uses: ./.github/workflows/deploy-web.yml
+
+  api:
+    runs-on: ubuntu-latest
+    needs: trigger-deployment
+    if: ${{ contains(needs.trigger-deployment.outputs.affected-apps, 'api') }}
+    steps:
+      - run: echo "noop - not implemented yet!"

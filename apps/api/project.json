@@ -51,12 +51,6 @@
         "jestConfig": "apps/api/jest.config.ts",
         "passWithNoTests": true
       }
-    },
-    "deploy": {
-      "executor": "@nrwl/workspace:run-commands",
-      "options": {
-        "command": "echo 'not implemented yet!'"
-      }
     }
   },
   "tags": []
