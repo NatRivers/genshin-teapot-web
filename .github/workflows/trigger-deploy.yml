@@ -1,4 +1,4 @@
-name: Deploy affected
+name: Trigger affected deployments
 on:
   push:
     #branches:
