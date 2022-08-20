@@ -1,0 +1,32 @@
+name: Deploy affected
+on:
+  push:
+    #branches:
+    #- main
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          # We need to fetch all branches and commits so that Nx affected has a base to compare against.
+          fetch-depth: 0
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/gallium
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build & deploy affected apps
+        run: npx nx affected --target=deploy --parallel=3
