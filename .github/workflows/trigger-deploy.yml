@@ -54,6 +54,7 @@ jobs:
     needs: trigger-deployment
     if: ${{ contains(needs.trigger-deployment.outputs.affected-apps, 'web') }}
     uses: ./.github/workflows/deploy-web.yml
+    secrets: inherit
 
   api:
     runs-on: ubuntu-latest
