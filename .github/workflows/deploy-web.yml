@@ -1,6 +1,10 @@
 name: Build & Deploy Web
 on: [workflow_call]
 
+#env:
+#NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+#NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,5 +28,61 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Web
-        run: npx nx run web:build
+      - name: Build apps/web
+        run: npx nx run web:build:production
+
+      # Upload build artifacts so it can be downloaded from a different job/workflow
+      # since we can't define an approval step within a jobs step(s)...
+      # i.e. to require approval for deploying to production
+      # we have to use the `environment` property, which can only be used in a job
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ github.sha }}-web-build
+          path: ./dist/apps/web
+
+  deploy-staging:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency: deploy-staging-web
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ github.sha }}-web-build
+          path: ./dist
+
+      - name: Deploy apps/web - Staging
+        run: |
+          echo "Deploying apps/web - Staging..." && \
+          echo $(ls -la ./dist)
+        #uses: nwtgck/actions-netlify@v1.2
+        #with:
+        #publish-dir: './dist/apps/web'
+        #production-branch: ${{ github.event.repository.default_branch }}
+
+  deploy-prod:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency: deploy-production-web
+    # use `environment: prod` to require an approval before
+    # being able to run the job
+    environment: prod
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ github.sha }}-web-build
+          path: ./dist
+
+      - name: Deploy apps/web - Production
+        run: |
+          echo "Deploying apps/web - Production..." && \
+          echo $(ls -la ./dist)
+        #uses: nwtgck/actions-netlify@v1.2
+        #with:
+        #publish-dir: './dist/apps/web'
+        #production-branch: ${{ github.event.repository.default_branch }}
+        #production-deploy: true
