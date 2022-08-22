@@ -1,8 +1,8 @@
 name: Trigger Deployments
 on:
   push:
-    #branches:
-    #- main
+    branches:
+      - main
 
 jobs:
   trigger-deployment:
@@ -42,7 +42,10 @@ jobs:
       # as a guard to prevent recursive workflows from being triggered
       # https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
       #
-      # using a personal access token seems less than ideal, so...
+      # GH mentions an alternative by using a PAT that has the `workflow` scope...
+      # https://docs.github.com/en/actions/security-guides/automatic-token-authentication#granting-additional-permissions
+      # however, is not very verbose if there's a misconfiguration with the permission scopes
+      # ...so, we go with the third option :D
       - id: affected-apps
         name: Determine affected apps
         run: |
