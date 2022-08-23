@@ -26,12 +26,12 @@ const theme = createTheme({
     /** components theme config here */
   },
   typography: {
-    fontFamily: 'Papyrus, serif',
+    fontFamily: 'Itim',
     fontWeightBold: 700,
     h1: {
-      fontFamily: 'Papyrus, serif',
+      fontFamily: 'Itim',
       fontSize: '42px', //3vw
-      fontStyle: 'bold',
+      fontWeight: 400,
       color: '#FFC800',
       margin: 'auto',
       width: '100%',
@@ -40,7 +40,6 @@ const theme = createTheme({
     },
     h5: {
       //Desc Header
-      fontFamily: 'Papyrus, serif',
       fontWeight: 'bold',
       color: '#FFC800',
       fontSize: '23px',
@@ -48,13 +47,11 @@ const theme = createTheme({
     },
     h6: {
       //Desc Info
-      fontFamily: 'Papyrus, serif',
       color: '#FFC800',
       textAlign: 'justify',
     },
 
     caption: {
-      fontFamily: 'Papyrus, serif',
       color: '#FFFFFF',
       textAlign: 'center',
     },

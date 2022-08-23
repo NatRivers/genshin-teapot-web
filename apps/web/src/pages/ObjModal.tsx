@@ -2,15 +2,11 @@ import { FC } from 'react';
 import {
   Box,
   Container,
-  Tooltip,
-  Button,
   Typography,
   List,
   ListItemText,
   Divider,
 } from '@mui/material';
-import ForwardRoundedIcon from '@mui/icons-material/ForwardRounded';
-import { fontFamily } from '@mui/system';
 
 export const ObjModal: FC = () => {
   return (
@@ -25,13 +21,7 @@ export const ObjModal: FC = () => {
           textAlign: 'center',
         })}
       >
-        <Typography
-          variant="subtitle1"
-          component="div"
-          sx={(theme) => ({ fontFamily: theme.typography.h1 })}
-        >
-          ABOUT SERENITEA POT
-        </Typography>
+        <Typography variant="h1">ABOUT SERENITEA POT</Typography>
         <Container
           sx={{
             position: 'relative',
@@ -42,26 +32,14 @@ export const ObjModal: FC = () => {
             textAlign: 'justify',
           }}
         >
-          <Typography
-            variant="subtitle1"
-            component="div"
-            sx={(theme) => ({
-              fontFamily: theme.typography.h6,
-            })}
-          >
+          <Typography variant="h6">
             The Serenitea Pot or Realm Within (colloquially also known Teapot,
             Housing, Homeland, or Player Housing) is a system in Genshin Impact
             that allows the player to create their own home. Players interact
             with the system using a gadget of the same name.
           </Typography>
           <br />
-          <Typography
-            variant="subtitle1"
-            component="div"
-            sx={(theme) => ({
-              fontFamily: theme.typography.h6,
-            })}
-          >
+          <Typography variant="h6">
             Players can request to visit their friend's Serenitea Pot Co-op Mode
             regardless of the World Level. Inside, the player will be greeted by
             the Teapot Spirit Tubby, who will provide access to various features
@@ -89,10 +67,8 @@ export const ObjModal: FC = () => {
               sx={{ width: '25vw', height: 'auto', padding: '0px 20px' }}
             />
             <Typography
-              variant="subtitle1"
-              component="div"
+              variant="caption"
               sx={(theme) => ({
-                fontFamily: theme.typography.caption,
                 width: '25vw',
                 margin: 'auto',
                 float: 'left',
@@ -102,15 +78,13 @@ export const ObjModal: FC = () => {
               Floating Abode
             </Typography>
             <Typography
-              variant="subtitle1"
-              component="div"
-              sx={(theme) => ({
-                fontFamily: theme.typography.caption,
+              variant="caption"
+              sx={{
                 width: '25vw',
                 margin: 'auto',
                 float: 'left',
                 marginBottom: '20px',
-              })}
+              }}
             >
               Emerald Peak
             </Typography>
@@ -126,26 +100,22 @@ export const ObjModal: FC = () => {
               sx={{ width: '25vw', height: 'auto', padding: '0px 20px' }}
             />
             <Typography
-              variant="subtitle1"
-              component="div"
-              sx={(theme) => ({
-                fontFamily: theme.typography.caption,
+              variant="caption"
+              sx={{
                 width: '25vw',
                 margin: 'auto',
                 float: 'left',
-              })}
+              }}
             >
               Cool Isle
             </Typography>
             <Typography
-              variant="subtitle1"
-              component="div"
-              sx={(theme) => ({
-                fontFamily: theme.typography.caption,
+              variant="caption"
+              sx={{
                 width: '25vw',
                 margin: 'auto',
                 float: 'left',
-              })}
+              }}
             >
               Silken Courtyard
             </Typography>
@@ -196,7 +166,39 @@ export const ObjModal: FC = () => {
           </Typography>
         </Container>
 
-        <hr />
+        {/* <hr /> */}
+        <Container
+          disableGutters
+          maxWidth={false}
+          sx={{
+            backgroundColor: 'primary.main',
+            position: 'relative',
+            textAlign: 'center',
+            marginTop: 2,
+          }}
+        >
+          <Typography
+            variant="subtitle1"
+            component="div"
+            sx={(theme) => ({ fontFamily: theme.typography.h1 })}
+          >
+            ABOUT ME
+          </Typography>
+          <Box
+            component="img"
+            src="../assets/aboutme.jpg"
+            sx={{
+              position: 'absolute',
+              zIndex: 'tooltip',
+              top: '100px',
+              left: '23%',
+              transform: 'translate(-50%)',
+              width: '30vw',
+              height: 'auto',
+              borderRadius: '50%',
+            }}
+          />
+        </Container>
       </Container>
     </Container>
   );
