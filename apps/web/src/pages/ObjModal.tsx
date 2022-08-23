@@ -6,6 +6,9 @@ import {
   List,
   ListItemText,
   Divider,
+  ImageList,
+  ImageListItem,
+  ImageListItemBar,
 } from '@mui/material';
 
 export const ObjModal: FC = () => {
@@ -56,69 +59,76 @@ export const ObjModal: FC = () => {
             }}
           />
           <Container sx={{ margin: 'auto' }}>
-            <Box
-              component="img"
-              src="../assets/Floating_Abode.jpg"
-              sx={{ width: '25vw', height: 'auto', padding: '0px 20px' }}
-            />
-            <Box
-              component="img"
-              src="../assets/Emerald_Peak.jpg"
-              sx={{ width: '25vw', height: 'auto', padding: '0px 20px' }}
-            />
-            <Typography
-              variant="caption"
-              sx={(theme) => ({
-                width: '25vw',
-                margin: 'auto',
-                float: 'left',
-                marginBottom: '20px',
-              })}
-            >
-              Floating Abode
-            </Typography>
-            <Typography
-              variant="caption"
-              sx={{
-                width: '25vw',
-                margin: 'auto',
-                float: 'left',
-                marginBottom: '20px',
-              }}
-            >
-              Emerald Peak
-            </Typography>
-            <br />
-            <Box
-              component="img"
-              src="../assets/Cool_Isle.jpg"
-              sx={{ width: '25vw', height: 'auto', padding: '0px 20px' }}
-            />
-            <Box
-              component="img"
-              src="../assets/Silken_Courtyard.jpg"
-              sx={{ width: '25vw', height: 'auto', padding: '0px 20px' }}
-            />
-            <Typography
-              variant="caption"
-              sx={{
-                width: '25vw',
-                margin: 'auto',
-                float: 'left',
-              }}
-            >
-              Cool Isle
-            </Typography>
-            <Typography
-              variant="caption"
-              sx={{
-                width: '25vw',
-                margin: 'auto',
-                float: 'left',
-              }}
-            >
-              Silken Courtyard
-            </Typography>
+            <ImageList>
+              <ImageListItem>
+                <img
+                  src="../assets/Floating_Abode.jpg"
+                  style={{ width: '25vw', height: 'auto', padding: '0px 20px' }}
+                />
+                <ImageListItemBar
+                  title="Floating Abode"
+                  position="below"
+                  sx={(theme) => ({
+                    fontStyle: theme.typography.caption,
+                    width: '25vw',
+                    margin: 'auto',
+                    float: 'left',
+                    marginBottom: '20px',
+                  })}
+                />
+              </ImageListItem>
+              <ImageListItem>
+                <img
+                  src="../assets/Emerald_Peak.jpg"
+                  style={{ width: '25vw', height: 'auto', padding: '0px 20px' }}
+                />
+                <ImageListItemBar
+                  title="Emerald Peak"
+                  position="below"
+                  sx={(theme) => ({
+                    fontStyle: theme.typography.caption,
+                    width: '25vw',
+                    margin: 'auto',
+                    float: 'left',
+                    marginBottom: '20px',
+                  })}
+                />
+              </ImageListItem>
+              <ImageListItem>
+                <img
+                  src="../assets/Cool_Isle.jpg"
+                  style={{ width: '25vw', height: 'auto', padding: '0px 20px' }}
+                />
+                <ImageListItemBar
+                  title="Cool Isle"
+                  position="below"
+                  sx={(theme) => ({
+                    fontStyle: theme.typography.caption,
+                    width: '25vw',
+                    margin: 'auto',
+                    float: 'left',
+                    marginBottom: '20px',
+                  })}
+                />
+              </ImageListItem>
+              <ImageListItem>
+                <img
+                  src="../assets/Silken_Courtyard.jpg"
+                  style={{ width: '25vw', height: 'auto', padding: '0px 20px' }}
+                />
+                <ImageListItemBar
+                  title="Silken Courtyard"
+                  position="below"
+                  sx={(theme) => ({
+                    fontStyle: theme.typography.caption,
+                    width: '25vw',
+                    margin: 'auto',
+                    float: 'left',
+                    marginBottom: '20px',
+                  })}
+                />
+              </ImageListItem>
+            </ImageList>
           </Container>
         </Container>
 
@@ -137,24 +147,20 @@ export const ObjModal: FC = () => {
             }}
           />
           <Typography
-            variant="subtitle1"
-            component="div"
-            sx={(theme) => ({
-              fontFamily: theme.typography.h5,
+            variant="h5"
+            sx={{
               paddingTop: '47%',
               width: '30vw',
               transform: 'translate(-5%)',
-            })}
+            }}
           >
             UNLOCKING THE SERENITEA POT HOUSING REALM
             <br />
             <Typography
-              variant="subtitle1"
-              component="div"
-              sx={(theme) => ({
-                fontFamily: theme.typography.h6,
+              variant="h6"
+              sx={{
                 fontSize: '20px',
-              })}
+              }}
             >
               To unlock the housing teapot, you’ll need to do the following:
               <List>
@@ -166,7 +172,6 @@ export const ObjModal: FC = () => {
           </Typography>
         </Container>
 
-        {/* <hr /> */}
         <Container
           disableGutters
           maxWidth={false}
