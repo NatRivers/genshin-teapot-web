@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@@geapot/root/ui-common": ["libs/ui-common/src/index.ts"],
       "@geapot/web/theme": ["libs/theme/src/index.ts"]
     }
   },

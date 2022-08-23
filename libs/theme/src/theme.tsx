@@ -13,6 +13,11 @@ const theme = createTheme({
     primary: {
       main: '#393737',
       dark: '#000000',
+      light: '#C6A378',
+      contrastText: '#FFC800',
+    },
+    secondary: {
+      main: '#FFC800',
     },
   },
   spacing: 8,
@@ -21,14 +26,37 @@ const theme = createTheme({
     /** components theme config here */
   },
   typography: {
-    fontFamily: '"Roboto", sans-serif',
-    allVariants: {
-      fontFamily: '"Roboto", sans-serif',
-    },
+    fontFamily: 'Papyrus, serif',
     fontWeightBold: 700,
-    h2: {
-      fontSize: '1.5rem',
-      fontWeight: 700,
+    h1: {
+      fontFamily: 'Papyrus, serif',
+      fontSize: '42px', //3vw
+      fontStyle: 'bold',
+      color: '#FFC800',
+      margin: 'auto',
+      width: '100%',
+      marginTop: '30px',
+      position: 'absolute',
+    },
+    h5: {
+      //Desc Header
+      fontFamily: 'Papyrus, serif',
+      fontWeight: 'bold',
+      color: '#FFC800',
+      fontSize: '23px',
+      textAlign: 'justify',
+    },
+    h6: {
+      //Desc Info
+      fontFamily: 'Papyrus, serif',
+      color: '#FFC800',
+      textAlign: 'justify',
+    },
+
+    caption: {
+      fontFamily: 'Papyrus, serif',
+      color: '#FFFFFF',
+      textAlign: 'center',
     },
   },
 });

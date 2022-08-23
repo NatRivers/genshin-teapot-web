@@ -4,6 +4,7 @@
   "projects": {
     "api": "apps/api",
     "theme": "libs/theme",
+    "ui-common": "libs/ui-common",
     "web": "apps/web"
   }
 }

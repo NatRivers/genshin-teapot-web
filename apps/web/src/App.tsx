@@ -3,6 +3,7 @@ import { Typography, Container } from '@mui/material';
 
 import { ThemeProvider } from './providers';
 import Home from './pages/Home';
+import ObjModal from './pages/ObjModal';
 
 // FIXME: delete once we actually have a pages
 const ExamplePage = () => (
@@ -18,6 +19,7 @@ export function App() {
     <ThemeProvider>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<ObjModal />} />
         <Route path="/example" element={<ExamplePage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
