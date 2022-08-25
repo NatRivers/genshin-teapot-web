@@ -20,7 +20,9 @@ export const ObjModal: FC = () => {
         maxWidth={false}
         sx={(theme) => ({
           background: theme.palette.primary.main,
-          height: '210vh',
+          height: 'auto',
+          maxHeight: 'auto',
+          minHeight: '210vh',
           position: 'absolute',
           textAlign: 'center',
         })}
@@ -140,7 +142,7 @@ export const ObjModal: FC = () => {
           </Container>
         </Container>
 
-        <Container>
+        <Container sx={{ marginLeft: '5%' }}>
           <Box
             component="img"
             src="../assets/aboutTeapot.jpg"
@@ -149,7 +151,7 @@ export const ObjModal: FC = () => {
               position: 'absolute',
               zIndex: 'tooltip',
               top: '100px',
-              left: '23%',
+              // left: '23%',
               transform: 'translate(-50%)',
               width: '30vw',
               height: 'auto',
@@ -158,9 +160,8 @@ export const ObjModal: FC = () => {
           <Typography
             variant="h5"
             sx={{
-              paddingTop: '47%',
+              marginTop: '47%',
               width: '30vw',
-              transform: 'translate(-5%)',
             }}
           >
             UNLOCKING THE SERENITEA POT HOUSING REALM
@@ -188,7 +189,7 @@ export const ObjModal: FC = () => {
             backgroundColor: 'primary.main',
             position: 'relative',
             textAlign: 'center',
-            marginTop: 4,
+            marginTop: 6,
           }}
         >
           <Typography
@@ -279,7 +280,7 @@ export const ObjModal: FC = () => {
           <Typography variant="h6">Yo! Nat here :D</Typography>
           <br />
           <Typography variant="h6">
-            If you are browsing through this website I would like to thank you
+            If you are browsing through this website, I would like to thank you
             for the support. I made this website for fun as I really enjoy
             building the Genshin Impact Serenitea Pot, so why not create a
             website for it for my personal project during my chill time?
@@ -288,9 +289,9 @@ export const ObjModal: FC = () => {
           <Typography variant="h6">
             The website has not yet contain the whole 793 list of furnishings,
             welp as you know 793 isn’t a small number. However, I’m planning to
-            be able to complete the whole 793 furniture if I have time and make
-            this a legit teapot website for you guys to use, as well for me too.
-            This website contains really simple UI/UX design for users to
+            be able to complete the whole 793 furnitures if I have the time and
+            make this a legit teapot website for you guys to use, as well for me
+            too. This website contains really simple UI/UX design for users to
             interact with as well as advertisement free.
           </Typography>
           <br />
