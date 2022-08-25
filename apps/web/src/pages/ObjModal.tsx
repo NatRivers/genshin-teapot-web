@@ -9,6 +9,7 @@ import {
   ImageList,
   ImageListItem,
   ImageListItemBar,
+  Link,
 } from '@mui/material';
 
 export const ObjModal: FC = () => {
@@ -37,7 +38,10 @@ export const ObjModal: FC = () => {
         >
           <Typography variant="h6">
             The Serenitea Pot or Realm Within (colloquially also known Teapot,
-            Housing, Homeland, or Player Housing) is a system in Genshin Impact
+            Housing, Homeland, or Player Housing) is a system in{' '}
+            <Link href="https://genshin.hoyoverse.com/en/" color="inherit">
+              Genshin Impact
+            </Link>{' '}
             that allows the player to create their own home. Players interact
             with the system using a gadget of the same name.
           </Typography>
@@ -59,8 +63,8 @@ export const ObjModal: FC = () => {
             }}
           />
           <Container sx={{ margin: 'auto' }}>
-            <ImageList>
-              <ImageListItem>
+            <ImageList sx={{ overflow: 'hidden' }}>
+              <ImageListItem sx={{ '&:hover': { transform: 'scale(1.08)' } }}>
                 <img
                   src="../assets/Floating_Abode.jpg"
                   alt="Floating Abode"
@@ -78,7 +82,7 @@ export const ObjModal: FC = () => {
                   })}
                 />
               </ImageListItem>
-              <ImageListItem>
+              <ImageListItem sx={{ '&:hover': { transform: 'scale(1.08)' } }}>
                 <img
                   src="../assets/Emerald_Peak.jpg"
                   alt="Emerald Peak"
@@ -96,7 +100,7 @@ export const ObjModal: FC = () => {
                   })}
                 />
               </ImageListItem>
-              <ImageListItem>
+              <ImageListItem sx={{ '&:hover': { transform: 'scale(1.08)' } }}>
                 <img
                   src="../assets/Cool_Isle.jpg"
                   alt="Cool Isle"
@@ -114,7 +118,7 @@ export const ObjModal: FC = () => {
                   })}
                 />
               </ImageListItem>
-              <ImageListItem>
+              <ImageListItem sx={{ '&:hover': { transform: 'scale(1.08)' } }}>
                 <img
                   src="../assets/Silken_Courtyard.jpg"
                   alt="Silken Courtyard"
@@ -215,31 +219,49 @@ export const ObjModal: FC = () => {
               width: '34.7vw',
               height: '100px',
               position: 'absolute',
-              marginTop: '45%',
-              marginLeft: '9%',
+              marginTop: '43%',
+              marginLeft: '8%',
+              padding: '10px',
+              overflow: 'hidden',
             }}
           >
             <a href="https://www.youtube.com/channel/UCKR4wancNtzemG0nslBs9xQ">
-              <ImageListItem>
+              <ImageListItem
+                title="YouTube"
+                sx={{ '&:hover': { transform: 'scale(1.08)' } }}
+              >
                 <img
                   src="../assets/yt.png"
-                  style={{ width: '60px', height: 'auto' }}
+                  alt="YouTubeIcon"
+                  style={{
+                    width: '60px',
+                    height: 'auto',
+                    borderRadius: '20%',
+                  }}
                 />
               </ImageListItem>
             </a>
             <a href="https://www.instagram.com/_natrivers_/">
-              <ImageListItem>
+              <ImageListItem
+                title="Instagram"
+                sx={{ '&:hover': { transform: 'scale(1.08)' } }}
+              >
                 <img
                   src="../assets/ig.png"
-                  style={{ width: '60px', height: 'auto' }}
+                  alt="InstagramIcon"
+                  style={{ width: '60px', height: 'auto', borderRadius: '20%' }}
                 />
               </ImageListItem>
             </a>
             <a href="https://discord.gg/AW3WkN9vwR">
-              <ImageListItem>
+              <ImageListItem
+                title="Discord"
+                sx={{ '&:hover': { transform: 'scale(1.08)' } }}
+              >
                 <img
                   src="../assets/dc.png"
-                  style={{ width: '60px', height: 'auto' }}
+                  alt="DiscordIcon"
+                  style={{ width: '60px', height: 'auto', borderRadius: '20%' }}
                 />
               </ImageListItem>
             </a>
@@ -250,7 +272,7 @@ export const ObjModal: FC = () => {
           sx={{
             float: 'right',
             marginRight: '5%',
-            marginTop: '10%',
+            marginTop: '8%',
             width: '50%',
           }}
         >
@@ -267,9 +289,9 @@ export const ObjModal: FC = () => {
             The website has not yet contain the whole 793 list of furnishings,
             welp as you know 793 isn’t a small number. However, I’m planning to
             be able to complete the whole 793 furniture if I have time and make
-            this a legit teapot website for you guys to use. This website
-            contains really simple UI/UX design for users to interact with as
-            well as advertisement free.
+            this a legit teapot website for you guys to use, as well for me too.
+            This website contains really simple UI/UX design for users to
+            interact with as well as advertisement free.
           </Typography>
           <br />
           <Typography variant="h6">
