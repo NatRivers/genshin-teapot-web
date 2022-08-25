@@ -36,7 +36,11 @@ jobs:
 
       # TODO: nx computation caching?
       - name: Build apps/web
-        run: npx nx run web:build:production
+        run: |
+          npx nx run web:build:production && \
+          # include `_redirect` file in `dist`
+          # https://docs.netlify.com/routing/redirects/
+          cp ./devops/_redirects ./dist/apps/web/_redirects
 
       # Upload build artifacts so it can be downloaded from a different job/workflow
       # since we can't define an approval step within a jobs step(s)...
