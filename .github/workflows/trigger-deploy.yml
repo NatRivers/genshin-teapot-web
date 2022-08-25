@@ -1,0 +1,67 @@
+name: Trigger Deployments
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  trigger-deployment:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      affected-apps: ${{ steps.affected-apps.outputs.affected-apps }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          # We need to fetch all branches and commits so that Nx affected has a base to compare against.
+          fetch-depth: 0
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/gallium
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+
+      # Need to install dependencies to get nx modules
+      # i.e. can't just call `npx -y nx ...` directly
+      - name: Install dependencies
+        run: npm ci
+
+      # ideally, we could just define a "deploy" target in the respective projects
+      # and rely on `nx affected --target=deploy` to _magically_ deploy the correct app(s)
+      # in the "deploy" target config, we would trigger a deployment via the `gh` cli...
+      #
+      # unfortunately, even though we can use the `gh` cli to trigger a new deployment workflow
+      # we need a gh token that has the 'workflow' scope permissions
+      # by default, the 'workflow' scope is omitted from `secrets.GITHUB_TOKEN`
+      # as a guard to prevent recursive workflows from being triggered
+      # https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
+      #
+      # GH mentions an alternative by using a PAT that has the `workflow` scope...
+      # https://docs.github.com/en/actions/security-guides/automatic-token-authentication#granting-additional-permissions
+      # however, is not very verbose if there's a misconfiguration with the permission scopes
+      # ...so, we go with the third option :D
+      - id: affected-apps
+        name: Determine affected apps
+        run: |
+          AFFECTED_APPS=$(npx nx print-affected --select=projects) && \
+          echo $AFFECTED_APPS && \
+          echo "::set-output name=affected-apps::$AFFECTED_APPS"
+
+  web:
+    needs: trigger-deployment
+    if: ${{ contains(needs.trigger-deployment.outputs.affected-apps, 'web') }}
+    uses: ./.github/workflows/deploy-web.yml
+    secrets: inherit
+
+  api:
+    runs-on: ubuntu-latest
+    needs: trigger-deployment
+    if: ${{ contains(needs.trigger-deployment.outputs.affected-apps, 'api') }}
+    steps:
+      - run: echo "noop - not implemented yet!"
