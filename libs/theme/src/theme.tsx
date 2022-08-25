@@ -43,7 +43,7 @@ const theme = createTheme({
       fontWeight: 'bold',
       color: '#FFC800',
       fontSize: '23px',
-      textAlign: 'justify',
+      textAlign: 'left',
     },
     h6: {
       //Desc Info

@@ -63,6 +63,7 @@ export const ObjModal: FC = () => {
               <ImageListItem>
                 <img
                   src="../assets/Floating_Abode.jpg"
+                  alt="Floating Abode"
                   style={{ width: '25vw', height: 'auto', padding: '0px 20px' }}
                 />
                 <ImageListItemBar
@@ -80,6 +81,7 @@ export const ObjModal: FC = () => {
               <ImageListItem>
                 <img
                   src="../assets/Emerald_Peak.jpg"
+                  alt="Emerald Peak"
                   style={{ width: '25vw', height: 'auto', padding: '0px 20px' }}
                 />
                 <ImageListItemBar
@@ -97,6 +99,7 @@ export const ObjModal: FC = () => {
               <ImageListItem>
                 <img
                   src="../assets/Cool_Isle.jpg"
+                  alt="Cool Isle"
                   style={{ width: '25vw', height: 'auto', padding: '0px 20px' }}
                 />
                 <ImageListItemBar
@@ -114,6 +117,7 @@ export const ObjModal: FC = () => {
               <ImageListItem>
                 <img
                   src="../assets/Silken_Courtyard.jpg"
+                  alt="Silken Courtyard"
                   style={{ width: '25vw', height: 'auto', padding: '0px 20px' }}
                 />
                 <ImageListItemBar
@@ -136,6 +140,7 @@ export const ObjModal: FC = () => {
           <Box
             component="img"
             src="../assets/aboutTeapot.jpg"
+            alt="aboutTeapot"
             sx={{
               position: 'absolute',
               zIndex: 'tooltip',
@@ -179,7 +184,7 @@ export const ObjModal: FC = () => {
             backgroundColor: 'primary.main',
             position: 'relative',
             textAlign: 'center',
-            marginTop: 2,
+            marginTop: 4,
           }}
         >
           <Typography
@@ -195,7 +200,7 @@ export const ObjModal: FC = () => {
             sx={{
               position: 'absolute',
               zIndex: 'tooltip',
-              top: '100px',
+              top: '120px',
               left: '23%',
               transform: 'translate(-50%)',
               width: '30vw',
@@ -203,6 +208,83 @@ export const ObjModal: FC = () => {
               borderRadius: '50%',
             }}
           />
+          <ImageList
+            cols={3}
+            rowHeight={60}
+            sx={{
+              width: '34.7vw',
+              height: '100px',
+              position: 'absolute',
+              marginTop: '45%',
+              marginLeft: '9%',
+            }}
+          >
+            <a href="https://www.youtube.com/channel/UCKR4wancNtzemG0nslBs9xQ">
+              <ImageListItem>
+                <img
+                  src="../assets/yt.png"
+                  style={{ width: '60px', height: 'auto' }}
+                />
+              </ImageListItem>
+            </a>
+            <a href="https://www.instagram.com/_natrivers_/">
+              <ImageListItem>
+                <img
+                  src="../assets/ig.png"
+                  style={{ width: '60px', height: 'auto' }}
+                />
+              </ImageListItem>
+            </a>
+            <a href="https://discord.gg/AW3WkN9vwR">
+              <ImageListItem>
+                <img
+                  src="../assets/dc.png"
+                  style={{ width: '60px', height: 'auto' }}
+                />
+              </ImageListItem>
+            </a>
+          </ImageList>
+        </Container>
+
+        <Container
+          sx={{
+            float: 'right',
+            marginRight: '5%',
+            marginTop: '10%',
+            width: '50%',
+          }}
+        >
+          <Typography variant="h6">Yo! Nat here :D</Typography>
+          <br />
+          <Typography variant="h6">
+            If you are browsing through this website I would like to thank you
+            for the support. I made this website for fun as I really enjoy
+            building the Genshin Impact Serenitea Pot, so why not create a
+            website for it for my personal project during my chill time?
+          </Typography>
+          <br />
+          <Typography variant="h6">
+            The website has not yet contain the whole 793 list of furnishings,
+            welp as you know 793 isn’t a small number. However, I’m planning to
+            be able to complete the whole 793 furniture if I have time and make
+            this a legit teapot website for you guys to use. This website
+            contains really simple UI/UX design for users to interact with as
+            well as advertisement free.
+          </Typography>
+          <br />
+          <Typography variant="h6">
+            Hope you guys enjoy using this website. Good luck with your teapot
+            build fellow Genshin Architects!
+          </Typography>
+
+          <br />
+          <Typography
+            variant="caption"
+            sx={{ color: '#FFC800', float: 'right' }}
+          >
+            © All rights reserved by miHoYo. Other properties belong to their
+            respective owners.
+          </Typography>
         </Container>
       </Container>
     </Container>
