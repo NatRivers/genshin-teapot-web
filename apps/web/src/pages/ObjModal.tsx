@@ -10,28 +10,57 @@ import {
   ImageListItem,
   ImageListItemBar,
   Link,
+  Stack,
 } from '@mui/material';
 
 export const ObjModal: FC = () => {
+  const imageClick = (id: string) => {
+    console.log(id);
+  };
   return (
     <Container disableGutters maxWidth={false} data-testid="object-modal">
-      <Container
-        disableGutters
-        maxWidth={false}
+      <Stack
         sx={(theme) => ({
           background: theme.palette.primary.main,
+          width: '100%',
           height: 'auto',
           maxHeight: 'auto',
           minHeight: '210vh',
           position: 'absolute',
-          textAlign: 'center',
         })}
       >
-        <Typography variant="h1">ABOUT SERENITEA POT</Typography>
+        <Typography variant="h1" sx={{ textAlign: 'center' }}>
+          ABOUT SERENITEA POT
+        </Typography>
         <Container
           sx={{
-            position: 'relative',
-            float: 'right',
+            position: 'absolute',
+            marginLeft: '5%',
+            width: '30vw',
+            top: '100px',
+          }}
+        >
+          <Box
+            component="img"
+            src="../assets/aboutTeapot.jpg"
+            alt="aboutTeapot"
+            sx={{
+              width: '30vw',
+              height: 'auto',
+            }}
+          />
+          <Typography variant="h5">
+            UNLOCKING THE SERENITEA POT HOUSING REALM:
+          </Typography>
+
+          <List sx={(theme) => ({ fontStyle: theme.typography.h6 })}>
+            <ListItemText primary="• Hit level 35 Adventure Rank or higher" />
+            <ListItemText primary="• Complete the Archon Quest Chapter 1: Act 3 – A New Star Approaches" />
+            <ListItemText primary="• Complete a Teapot to Call Home: Part 1" />
+          </List>
+        </Container>
+        <Container
+          sx={{
             marginRight: '15px',
             marginTop: '110px',
             width: '60%',
@@ -64,9 +93,12 @@ export const ObjModal: FC = () => {
               width: '50%',
             }}
           />
-          <Container sx={{ margin: 'auto' }}>
+          <Container>
             <ImageList sx={{ overflow: 'hidden' }}>
-              <ImageListItem sx={{ '&:hover': { transform: 'scale(1.08)' } }}>
+              <ImageListItem
+                onClick={() => imageClick('FA')}
+                sx={{ '&:hover': { transform: 'scale(1.08)' } }}
+              >
                 <img
                   src="../assets/Floating_Abode.jpg"
                   alt="Floating Abode"
@@ -79,12 +111,14 @@ export const ObjModal: FC = () => {
                     fontStyle: theme.typography.caption,
                     width: '25vw',
                     margin: 'auto',
-                    float: 'left',
                     marginBottom: '20px',
                   })}
                 />
               </ImageListItem>
-              <ImageListItem sx={{ '&:hover': { transform: 'scale(1.08)' } }}>
+              <ImageListItem
+                onClick={() => imageClick('EP')}
+                sx={{ '&:hover': { transform: 'scale(1.08)' } }}
+              >
                 <img
                   src="../assets/Emerald_Peak.jpg"
                   alt="Emerald Peak"
@@ -97,12 +131,14 @@ export const ObjModal: FC = () => {
                     fontStyle: theme.typography.caption,
                     width: '25vw',
                     margin: 'auto',
-                    float: 'left',
                     marginBottom: '20px',
                   })}
                 />
               </ImageListItem>
-              <ImageListItem sx={{ '&:hover': { transform: 'scale(1.08)' } }}>
+              <ImageListItem
+                onClick={() => imageClick('CI')}
+                sx={{ '&:hover': { transform: 'scale(1.08)' } }}
+              >
                 <img
                   src="../assets/Cool_Isle.jpg"
                   alt="Cool Isle"
@@ -115,12 +151,14 @@ export const ObjModal: FC = () => {
                     fontStyle: theme.typography.caption,
                     width: '25vw',
                     margin: 'auto',
-                    float: 'left',
                     marginBottom: '20px',
                   })}
                 />
               </ImageListItem>
-              <ImageListItem sx={{ '&:hover': { transform: 'scale(1.08)' } }}>
+              <ImageListItem
+                onClick={() => imageClick('SC')}
+                sx={{ '&:hover': { transform: 'scale(1.08)' } }}
+              >
                 <img
                   src="../assets/Silken_Courtyard.jpg"
                   alt="Silken Courtyard"
@@ -133,53 +171,12 @@ export const ObjModal: FC = () => {
                     fontStyle: theme.typography.caption,
                     width: '25vw',
                     margin: 'auto',
-                    float: 'left',
                     marginBottom: '20px',
                   })}
                 />
               </ImageListItem>
             </ImageList>
           </Container>
-        </Container>
-
-        <Container sx={{ marginLeft: '5%' }}>
-          <Box
-            component="img"
-            src="../assets/aboutTeapot.jpg"
-            alt="aboutTeapot"
-            sx={{
-              position: 'absolute',
-              zIndex: 'tooltip',
-              top: '100px',
-              // left: '23%',
-              transform: 'translate(-50%)',
-              width: '30vw',
-              height: 'auto',
-            }}
-          />
-          <Typography
-            variant="h5"
-            sx={{
-              marginTop: '47%',
-              width: '30vw',
-            }}
-          >
-            UNLOCKING THE SERENITEA POT HOUSING REALM
-            <br />
-            <Typography
-              variant="h6"
-              sx={{
-                fontSize: '20px',
-              }}
-            >
-              To unlock the housing teapot, you’ll need to do the following:
-              <List>
-                <ListItemText primary="• Hit level 35 Adventure Rank or higher" />
-                <ListItemText primary="• Complete the Archon Quest Chapter 1: Act 3 – A New Star Approaches" />
-                <ListItemText primary="• Complete a Teapot to Call Home: Part 1" />
-              </List>
-            </Typography>
-          </Typography>
         </Container>
 
         <Container
@@ -271,7 +268,6 @@ export const ObjModal: FC = () => {
 
         <Container
           sx={{
-            float: 'right',
             marginRight: '5%',
             marginTop: '8%',
             width: '50%',
@@ -309,7 +305,7 @@ export const ObjModal: FC = () => {
             respective owners.
           </Typography>
         </Container>
-      </Container>
+      </Stack>
     </Container>
   );
 };
