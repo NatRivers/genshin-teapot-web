@@ -23,49 +23,89 @@ export const ObjModal: FC = () => {
         sx={(theme) => ({
           background: theme.palette.primary.main,
           width: '100%',
-          height: 'auto',
-          maxHeight: 'auto',
-          minHeight: '210vh',
-          position: 'absolute',
+          // height: 'auto',
+          // maxHeight: 'auto',
+          // minHeight: '210vh',
         })}
       >
-        <Typography variant="h1" sx={{ textAlign: 'center' }}>
+        <Typography
+          variant="h1"
+          sx={{
+            textAlign: 'center',
+            position: 'relative',
+          }}
+        >
           ABOUT SERENITEA POT
         </Typography>
-        <Container
+        <Box
           sx={{
-            position: 'absolute',
+            display: 'flex',
             marginLeft: '5%',
             width: '30vw',
-            top: '100px',
+            height: '100%',
           }}
         >
           <Box
             component="img"
             src="../assets/aboutTeapot.jpg"
             alt="aboutTeapot"
-            sx={{
+            sx={(theme) => ({
+              display: 'flex',
+              zIndex: 'tooltip',
+              marginTop: '30px',
+              marginLeft: '5%',
               width: '30vw',
               height: 'auto',
-            }}
-          />
-          <Typography variant="h5">
-            UNLOCKING THE SERENITEA POT HOUSING REALM:
-          </Typography>
 
-          <List sx={(theme) => ({ fontStyle: theme.typography.h6 })}>
-            <ListItemText primary="• Hit level 35 Adventure Rank or higher" />
-            <ListItemText primary="• Complete the Archon Quest Chapter 1: Act 3 – A New Star Approaches" />
-            <ListItemText primary="• Complete a Teapot to Call Home: Part 1" />
-          </List>
-        </Container>
-        <Container
+              [theme.breakpoints.down('sm')]: {
+                width: 'auto',
+                height: '30vh',
+                marginTop: '5vh',
+                marginRight: 'auto',
+                marginLeft: 'auto',
+              },
+            })}
+          />
+        </Box>
+        <Box
           sx={{
-            marginRight: '15px',
-            marginTop: '110px',
-            width: '60%',
-            textAlign: 'justify',
+            display: 'flex',
+            marginLeft: '7%',
+            width: '30vw',
+            height: '100%',
+            paddingTop: '40px',
           }}
+        >
+          <Box
+            sx={(theme) => ({
+              display: 'flex',
+            })}
+          >
+            <Typography variant="h5">
+              UNLOCKING THE SERENITEA POT HOUSING REALM:
+              <List sx={(theme) => ({ fontStyle: theme.typography.h6 })}>
+                <ListItemText primary="• Hit level 35 Adventure Rank or higher" />
+                <ListItemText primary="• Complete the Archon Quest Chapter 1: Act 3 – A New Star Approaches" />
+                <ListItemText primary="• Complete a Teapot to Call Home: Part 1" />
+              </List>
+            </Typography>
+          </Box>
+        </Box>
+
+        <Box
+          sx={(theme) => ({
+            marginRight: '8%',
+            marginLeft: 'auto',
+            display: 'flex',
+            width: '50%',
+            textAlign: 'justify',
+
+            [theme.breakpoints.down('sm')]: {
+              width: '100%',
+              height: 'auto',
+              marginTop: '50vh',
+            },
+          })}
         >
           <Typography variant="h6">
             The Serenitea Pot or Realm Within (colloquially also known Teapot,
@@ -75,109 +115,128 @@ export const ObjModal: FC = () => {
             </Link>{' '}
             that allows the player to create their own home. Players interact
             with the system using a gadget of the same name.
-          </Typography>
-          <br />
-          <Typography variant="h6">
+            <Divider
+              sx={(theme) => ({
+                margin: '5px',
+                width: '0%',
+              })}
+            />
             Players can request to visit their friend's Serenitea Pot Co-op Mode
             regardless of the World Level. Inside, the player will be greeted by
             the Teapot Spirit Tubby, who will provide access to various features
             of Housing.
+            <Divider
+              sx={{
+                margin: '20px',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                marginBottom: '30px',
+                backgroundColor: '#FFC800',
+                width: '50%',
+              }}
+            />
+            <Container>
+              <ImageList sx={{ overflow: 'hidden' }}>
+                <ImageListItem
+                  onClick={() => imageClick('FA')}
+                  sx={{ '&:hover': { transform: 'scale(1.08)' } }}
+                >
+                  <img
+                    src="../assets/Floating_Abode.jpg"
+                    alt="Floating Abode"
+                    style={{
+                      width: '25vw',
+                      height: 'auto',
+                      padding: '0px 20px',
+                    }}
+                  />
+                  <ImageListItemBar
+                    title="Floating Abode"
+                    position="below"
+                    sx={(theme) => ({
+                      fontStyle: theme.typography.caption,
+                      width: '25vw',
+                      margin: 'auto',
+                      marginBottom: '20px',
+                    })}
+                  />
+                </ImageListItem>
+                <ImageListItem
+                  onClick={() => imageClick('EP')}
+                  sx={{ '&:hover': { transform: 'scale(1.08)' } }}
+                >
+                  <img
+                    src="../assets/Emerald_Peak.jpg"
+                    alt="Emerald Peak"
+                    style={{
+                      width: '25vw',
+                      height: 'auto',
+                      padding: '0px 20px',
+                    }}
+                  />
+                  <ImageListItemBar
+                    title="Emerald Peak"
+                    position="below"
+                    sx={(theme) => ({
+                      fontStyle: theme.typography.caption,
+                      width: '25vw',
+                      margin: 'auto',
+                      marginBottom: '20px',
+                    })}
+                  />
+                </ImageListItem>
+                <ImageListItem
+                  onClick={() => imageClick('CI')}
+                  sx={{ '&:hover': { transform: 'scale(1.08)' } }}
+                >
+                  <img
+                    src="../assets/Cool_Isle.jpg"
+                    alt="Cool Isle"
+                    style={{
+                      width: '25vw',
+                      height: 'auto',
+                      padding: '0px 20px',
+                    }}
+                  />
+                  <ImageListItemBar
+                    title="Cool Isle"
+                    position="below"
+                    sx={(theme) => ({
+                      fontStyle: theme.typography.caption,
+                      width: '25vw',
+                      margin: 'auto',
+                      marginBottom: '20px',
+                    })}
+                  />
+                </ImageListItem>
+                <ImageListItem
+                  onClick={() => imageClick('SC')}
+                  sx={{ '&:hover': { transform: 'scale(1.08)' } }}
+                >
+                  <img
+                    src="../assets/Silken_Courtyard.jpg"
+                    alt="Silken Courtyard"
+                    style={{
+                      width: '25vw',
+                      height: 'auto',
+                      padding: '0px 20px',
+                    }}
+                  />
+                  <ImageListItemBar
+                    title="Silken Courtyard"
+                    position="below"
+                    sx={(theme) => ({
+                      fontStyle: theme.typography.caption,
+                      width: '25vw',
+                      margin: 'auto',
+                      marginBottom: '20px',
+                    })}
+                  />
+                </ImageListItem>
+              </ImageList>
+            </Container>
           </Typography>
-          <Divider
-            sx={{
-              margin: '20px',
-              marginLeft: 'auto',
-              marginRight: 'auto',
-              marginBottom: '30px',
-              backgroundColor: '#FFC800',
-              width: '50%',
-            }}
-          />
-          <Container>
-            <ImageList sx={{ overflow: 'hidden' }}>
-              <ImageListItem
-                onClick={() => imageClick('FA')}
-                sx={{ '&:hover': { transform: 'scale(1.08)' } }}
-              >
-                <img
-                  src="../assets/Floating_Abode.jpg"
-                  alt="Floating Abode"
-                  style={{ width: '25vw', height: 'auto', padding: '0px 20px' }}
-                />
-                <ImageListItemBar
-                  title="Floating Abode"
-                  position="below"
-                  sx={(theme) => ({
-                    fontStyle: theme.typography.caption,
-                    width: '25vw',
-                    margin: 'auto',
-                    marginBottom: '20px',
-                  })}
-                />
-              </ImageListItem>
-              <ImageListItem
-                onClick={() => imageClick('EP')}
-                sx={{ '&:hover': { transform: 'scale(1.08)' } }}
-              >
-                <img
-                  src="../assets/Emerald_Peak.jpg"
-                  alt="Emerald Peak"
-                  style={{ width: '25vw', height: 'auto', padding: '0px 20px' }}
-                />
-                <ImageListItemBar
-                  title="Emerald Peak"
-                  position="below"
-                  sx={(theme) => ({
-                    fontStyle: theme.typography.caption,
-                    width: '25vw',
-                    margin: 'auto',
-                    marginBottom: '20px',
-                  })}
-                />
-              </ImageListItem>
-              <ImageListItem
-                onClick={() => imageClick('CI')}
-                sx={{ '&:hover': { transform: 'scale(1.08)' } }}
-              >
-                <img
-                  src="../assets/Cool_Isle.jpg"
-                  alt="Cool Isle"
-                  style={{ width: '25vw', height: 'auto', padding: '0px 20px' }}
-                />
-                <ImageListItemBar
-                  title="Cool Isle"
-                  position="below"
-                  sx={(theme) => ({
-                    fontStyle: theme.typography.caption,
-                    width: '25vw',
-                    margin: 'auto',
-                    marginBottom: '20px',
-                  })}
-                />
-              </ImageListItem>
-              <ImageListItem
-                onClick={() => imageClick('SC')}
-                sx={{ '&:hover': { transform: 'scale(1.08)' } }}
-              >
-                <img
-                  src="../assets/Silken_Courtyard.jpg"
-                  alt="Silken Courtyard"
-                  style={{ width: '25vw', height: 'auto', padding: '0px 20px' }}
-                />
-                <ImageListItemBar
-                  title="Silken Courtyard"
-                  position="below"
-                  sx={(theme) => ({
-                    fontStyle: theme.typography.caption,
-                    width: '25vw',
-                    margin: 'auto',
-                    marginBottom: '20px',
-                  })}
-                />
-              </ImageListItem>
-            </ImageList>
-          </Container>
-        </Container>
+        </Box>
 
         <Container
           disableGutters
@@ -190,86 +249,115 @@ export const ObjModal: FC = () => {
           }}
         >
           <Typography
-            variant="subtitle1"
+            variant="h1"
             component="div"
-            sx={(theme) => ({ fontFamily: theme.typography.h1 })}
+            sx={(theme) => ({
+              position: 'relative',
+            })}
           >
             ABOUT ME
           </Typography>
           <Box
             component="img"
             src="../assets/aboutme.jpg"
-            sx={{
-              position: 'absolute',
+            sx={(theme) => ({
+              display: 'flex',
               zIndex: 'tooltip',
-              top: '120px',
-              left: '23%',
-              transform: 'translate(-50%)',
+              marginTop: '30px',
+              marginLeft: '5%',
               width: '30vw',
               height: 'auto',
               borderRadius: '50%',
-            }}
+
+              [theme.breakpoints.down('sm')]: {
+                width: 'auto',
+                height: '30vh',
+                marginTop: '5vh',
+                marginRight: 'auto',
+                marginLeft: 'auto',
+              },
+            })}
           />
-          <ImageList
-            cols={3}
-            rowHeight={60}
-            sx={{
-              width: '34.7vw',
-              height: '100px',
-              position: 'absolute',
-              marginTop: '43%',
-              marginLeft: '8%',
-              padding: '10px',
-              overflow: 'hidden',
-            }}
+          <Box
+            sx={(theme) => ({
+              display: 'flex',
+
+              [theme.breakpoints.down('sm')]: {
+                width: 'auto',
+              },
+            })}
           >
-            <a href="https://www.youtube.com/channel/UCKR4wancNtzemG0nslBs9xQ">
-              <ImageListItem
-                title="YouTube"
-                sx={{ '&:hover': { transform: 'scale(1.08)' } }}
-              >
-                <img
-                  src="../assets/yt.png"
-                  alt="YouTubeIcon"
-                  style={{
-                    width: '60px',
-                    height: 'auto',
-                    borderRadius: '20%',
+            <ImageList
+              cols={3}
+              rowHeight={60}
+              sx={{
+                height: '100px',
+                marginTop: '3%',
+                overflow: 'hidden',
+                display: 'flex',
+                justifyContent: 'space-evenly',
+                width: '40%',
+              }}
+            >
+              <a href="https://www.youtube.com/channel/UCKR4wancNtzemG0nslBs9xQ">
+                <ImageListItem
+                  title="YouTube"
+                  sx={{
+                    '&:hover': { transform: 'scale(1.08)' },
                   }}
-                />
-              </ImageListItem>
-            </a>
-            <a href="https://www.instagram.com/_natrivers_/">
-              <ImageListItem
-                title="Instagram"
-                sx={{ '&:hover': { transform: 'scale(1.08)' } }}
-              >
-                <img
-                  src="../assets/ig.png"
-                  alt="InstagramIcon"
-                  style={{ width: '60px', height: 'auto', borderRadius: '20%' }}
-                />
-              </ImageListItem>
-            </a>
-            <a href="https://discord.gg/AW3WkN9vwR">
-              <ImageListItem
-                title="Discord"
-                sx={{ '&:hover': { transform: 'scale(1.08)' } }}
-              >
-                <img
-                  src="../assets/dc.png"
-                  alt="DiscordIcon"
-                  style={{ width: '60px', height: 'auto', borderRadius: '20%' }}
-                />
-              </ImageListItem>
-            </a>
-          </ImageList>
+                >
+                  <img
+                    src="../assets/yt.png"
+                    alt="YouTubeIcon"
+                    style={{
+                      width: '60px',
+                      borderRadius: '20%',
+                    }}
+                  />
+                </ImageListItem>
+              </a>
+              <a href="https://www.instagram.com/_natrivers_/">
+                <ImageListItem
+                  title="Instagram"
+                  sx={{
+                    '&:hover': { transform: 'scale(1.08)' },
+                  }}
+                >
+                  <img
+                    src="../assets/ig.png"
+                    alt="InstagramIcon"
+                    style={{
+                      width: '60px',
+                      borderRadius: '20%',
+                    }}
+                  />
+                </ImageListItem>
+              </a>
+              <a href="https://discord.gg/AW3WkN9vwR">
+                <ImageListItem
+                  title="Discord"
+                  sx={{
+                    '&:hover': { transform: 'scale(1.08)' },
+                  }}
+                >
+                  <img
+                    src="../assets/dc.png"
+                    alt="DiscordIcon"
+                    style={{
+                      width: '60px',
+                      borderRadius: '20%',
+                    }}
+                  />
+                </ImageListItem>
+              </a>
+            </ImageList>
+          </Box>
         </Container>
 
-        <Container
+        <Box
           sx={{
             marginRight: '5%',
-            marginTop: '8%',
+            marginLeft: 'auto',
             width: '50%',
           }}
         >
@@ -283,12 +371,13 @@ export const ObjModal: FC = () => {
           </Typography>
           <br />
           <Typography variant="h6">
-            The website has not yet contain the whole 793 list of furnishings,
-            welp as you know 793 isn’t a small number. However, I’m planning to
-            be able to complete the whole 793 furnitures if I have the time and
-            make this a legit teapot website for you guys to use, as well for me
-            too. This website contains really simple UI/UX design for users to
-            interact with as well as advertisement free.
+            The website has not yet contain the whole list of furnishings, I
+            have only obtained furnishings data up until version 3.0. However,
+            I’m planning to be able to complete the whole furnitures if I have
+            the time and make this a legit working teapot website for you guys
+            to use, as well for me too. This website contains really simple
+            UI/UX design for users to interact with as well as advertisement
+            free.
           </Typography>
           <br />
           <Typography variant="h6">
@@ -304,7 +393,7 @@ export const ObjModal: FC = () => {
             © All rights reserved by miHoYo. Other properties belong to their
             respective owners.
           </Typography>
-        </Container>
+        </Box>
       </Stack>
     </Container>
   );
